@@ -26,7 +26,7 @@ export function ThemeProvider({ children } : { children: React.ReactNode}) {
   useEffect(() => {
     handleThemeChange();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode]);
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ mode, setMode }}>
