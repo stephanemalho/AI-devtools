@@ -39,4 +39,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+} // NavBar Theme Switcher and Mobile Navigation 13 min
