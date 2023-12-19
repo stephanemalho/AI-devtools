@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -9,24 +10,39 @@ import { sidebarLinks } from "@/constants";
 import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NavContent = () => {
+  const pathname = usePathname();
+
   return (
     <section className="flex h-full flex-col gap-6 pt-16">
-      {sidebarLinks.map((link) => (
-        <SheetClose asChild key={link.route}>
-          <Link href={link.route} className="flex flex-row">
-            <Image
-              src={link.imgURL}
-              width={20}
-              height={20}
-              alt={link.label}
-              className="invert-colors"
-            />
-            <p className="invert-colors text-dark-100 dark:text-light-900 ml-4">{link.label}</p>
-          </Link>
-        </SheetClose>
-      ))}
+      {sidebarLinks.map((item) => {
+        const isActive =
+          (pathname.includes(item.route) && item.route.length > 1) ||
+          pathname === item.route;
+        return (
+          <SheetClose asChild key={item.label}>
+            <Link
+              href={item.route}
+              className={`${
+                isActive
+                  ? "primary-gradient rounded-lg text-light-900"
+                  : "text-dark300_light900"
+              } flex items-center justify-start gap-4 bg-transparent p-4`}
+            >
+              <Image
+                src={item.imgURL}
+                width={20}
+                height={20}
+                alt={item.label}
+                className={`${isActive ? "" : "invert-colors"}`}
+              />
+              <p>{item.label}</p>
+            </Link>
+          </SheetClose>
+        );
+      })}
     </section>
   );
 };
