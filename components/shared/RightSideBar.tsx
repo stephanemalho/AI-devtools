@@ -5,19 +5,19 @@ import RenderTags from "./RenderTags";
 
 const RightSideBar = () => {
   const HotQuestions = [
-    { _id: 1, title: "How to use Shad cn?", timeStamp: "2 hours ago" },
-    { _id: 2, title: "How to use Next.js?", timeStamp: "6 hours ago" },
-    { _id: 3, title: "How to use TailwindCSS?", timeStamp: "12 hours ago" },
-    { _id: 4, title: "How to use React?", timeStamp: "1 day ago" },
-    { _id: 5, title: "How to use Clerck?", timeStamp: "2 days ago" },
+    { _id: "1", title: "How to use Shad cn?", timeStamp: "2 hours ago" },
+    { _id: "2", title: "How to use Next.js?", timeStamp: "6 hours ago" },
+    { _id: "3", title: "How to use TailwindCSS?", timeStamp: "12 hours ago" },
+    { _id: "4", title: "How to use React?", timeStamp: "1 day ago" },
+    { _id: "5", title: "How to use Clerck?", timeStamp: "2 days ago" },
   ];
 
   const PopularTags = [
-    { _id: 1, name: "React", totalQuestions: 19 },
-    { _id: 2, name: "Next.js", totalQuestions: 20 },
-    { _id: 3, name: "TailwindCSS", totalQuestions: 5 },
-    { _id: 4, name: "Clerck", totalQuestions: 9 },
-    { _id: 5, name: "Shad cn", totalQuestions: 18 },
+    { _id: "1", name: "React", totalQuestions: 19 },
+    { _id: "2", name: "Next.js", totalQuestions: 20 },
+    { _id: "3", name: "TailwindCSS", totalQuestions: 5 },
+    { _id: "4", name: "Clerck", totalQuestions: 9 },
+    { _id: "5", name: "Shad cn", totalQuestions: 18 },
   ];
 
   return (

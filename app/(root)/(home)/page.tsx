@@ -1,3 +1,4 @@
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilters from "@/components/home/HomeFilters";
 import Filter from "@/components/shared/Filter";
 import NoResult from "@/components/shared/NoResult";
@@ -9,26 +10,60 @@ import React from "react";
 
 const questions = [
   {
-    _id: 1,
+    _id: "1",
     title: "What is the best way to learn React?",
-    tags: ["react", "javascript", "frontend"],
-    author: "Kohn Doe",
+    tags: [
+      {
+        _id: "tag1",
+        name: "react",
+      },
+      {
+        _id: "tag2",
+        name: "javascript",
+      },
+      {
+        _id: "tag3",
+        name: "frontend",
+      },
+    ],
+    author: {
+      _id: "author1",
+      name: "Kohn Doe",
+      picture: "url_de_l'image",
+    },
     upvotes: 10,
     views: 100,
-    answers: 5,
-    createdAt: "2021-09-10T11:00:00.000Z",
+    answers: [],
+    createdAt: new Date("2021-09-10T11:00:00.000Z"),
   },
   {
-    _id: 2,
+    _id: "2",
     title: "Can I use Next.js with Typescript?",
-    tags: ["Nextjs", "typescript", "frontend"],
-    author: "John Doe",
+    tags: [
+      {
+        _id: "tag4",
+        name: "Nextjs",
+      },
+      {
+        _id: "tag5",
+        name: "typescript",
+      },
+      {
+        _id: "tag6",
+        name: "frontend",
+      },
+    ],
+    author: {
+      _id: "author2",
+      name: "John Doe",
+      picture: "url_de_l'image",
+    },
     upvotes: 10,
     views: 100,
-    answers: 5,
-    createdAt: "2019-09-10T11:00:00.000Z",
+    answers: [],
+    createdAt: new Date("2019-09-10T11:00:00.000Z"),
   },
-] 
+];
 
 const Home = () => {
   return (
@@ -59,12 +94,19 @@ const Home = () => {
       <HomeFilters />
       <div className="mt-10 flex w-full flex-col gap-6">
         {questions.length > 0 ? questions.map((question) => (
-          <div
+          <QuestionCard
             key={question._id}
-            className="flex flex-col gap-2 border border-light-300 rounded-md p-4"
-          >
-            QuestionCard 
-          </div> )) : 
+            _id={question._id}
+            title={question.title}
+            tags={question.tags}
+            author={question.author}
+            upvotes={question.upvotes}
+            views={question.views}
+            answers={question.answers}
+            createdAt={question.createdAt}
+
+          />
+          )) : 
           <NoResult
             title={`There's no question to show`}
             description={`Be the first to break the silence! 🚀 Ask a Question and kickstart the discussion. our query could be the next big thing others learn from. Get involved! 💡`}
