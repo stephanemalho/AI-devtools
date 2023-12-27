@@ -1,10 +1,34 @@
 import HomeFilters from "@/components/home/HomeFilters";
 import Filter from "@/components/shared/Filter";
+import NoResult from "@/components/shared/NoResult";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import Link from "next/link";
 import React from "react";
+
+const questions = [
+  {
+    _id: 1,
+    title: "What is the best way to learn React?",
+    tags: ["react", "javascript", "frontend"],
+    author: "Kohn Doe",
+    upvotes: 10,
+    views: 100,
+    answers: 5,
+    createdAt: "2021-09-10T11:00:00.000Z",
+  },
+  {
+    _id: 2,
+    title: "Can I use Next.js with Typescript?",
+    tags: ["Nextjs", "typescript", "frontend"],
+    author: "John Doe",
+    upvotes: 10,
+    views: 100,
+    answers: 5,
+    createdAt: "2019-09-10T11:00:00.000Z",
+  },
+] 
 
 const Home = () => {
   return (
@@ -33,6 +57,22 @@ const Home = () => {
         />
       </div>
       <HomeFilters />
+      <div className="mt-10 flex w-full flex-col gap-6">
+        {questions.length > 0 ? questions.map((question) => (
+          <div
+            key={question._id}
+            className="flex flex-col gap-2 border border-light-300 rounded-md p-4"
+          >
+            QuestionCard 
+          </div> )) : 
+          <NoResult
+            title={`There's no question to show`}
+            description={`Be the first to break the silence! 🚀 Ask a Question and kickstart the discussion. our query could be the next big thing others learn from. Get involved! 💡`}
+            link="/"
+            linkLabel="Ask a question"
+          />
+        }
+      </div>
     </>
   );
 };
