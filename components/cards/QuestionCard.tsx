@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import RenderTags from "../shared/RenderTags";
 import Metric from "../shared/Metric";
+import { getTimeStamp } from "@/lib/utils";
 
 interface QuestionCardProps {
   _id: string;
@@ -36,7 +37,7 @@ const QuestionCard = ({
       <div className="flex flex-col-reverse items-start justify-between gap-5 sm:flex-row">
         <div className="">
           <span className="subtle-regular text-dark400_light700 line-clamp-1 flex sm:hidden ">
-            {String(createdAt)}
+            {getTimeStamp(createdAt)}
           </span>
           <Link href={`/question/${_id}`}>
             <h3 className="sm:h3-semibold base-semibold text-dark200_light900 line-clamp-1 flex-1">
