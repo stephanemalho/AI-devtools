@@ -25,3 +25,13 @@ export const getTimeStamp = (createdAt: Date): string => {
 
   return 'Just now';
 };
+
+export function formatNumber(num: number): string {
+  if (num >= 1e6) {
+    return `+${Math.floor(num / 1e6)}M`;
+  } else if (num >= 1e3) {
+    return `${Math.floor(num / 1e3)}K`;
+  } else {
+    return num.toString();
+  }
+}
