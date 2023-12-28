@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const getTimeStamp = (createdAt: string): string => {
+export const getTimeStamp = (createdAt: Date): string => {
   const now = new Date().getTime(); // Convert to timestamp
   const then = new Date(createdAt).getTime(); // Convert to timestamp
   const seconds = Math.floor((now - then) / 1000);
