@@ -5,12 +5,12 @@ import { Button } from '../ui/button'
 
 interface NoResultProps {
   title: string,
-  description: string,
+  content: string,
   link: string,
   linkLabel: string
 }
 
-const NoResult = ({ title, description, link, linkLabel } : NoResultProps) => {
+const NoResult = ({ title, content, link, linkLabel } : NoResultProps) => {
   return (
     <div className="mt-10 flex w-full flex-col items-center justify-center">
       <Image 
@@ -29,7 +29,7 @@ const NoResult = ({ title, description, link, linkLabel } : NoResultProps) => {
       />
      
       <h2 className="h2-bold text-dark200_light900 mt-8">{title}</h2>
-      <p className="body-regular text-dark500_light700 my-3.5 maw-x-md text-center">{description}</p>
+      <p className="body-regular text-dark500_light700 my-3.5 maw-x-md text-center">{content}</p>
       <Link href={link}>
         <Button className="paragraph-medium mt-5 min-h-[46px] rounded-lg bg-primary-500 px-4 py-3 text-light-900 dark:bg-primary-gradient">{linkLabel}</Button>
       </Link>

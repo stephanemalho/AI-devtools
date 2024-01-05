@@ -39,4 +39,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-} // Develop backend MongoDB and Server Actions Setup 4.00 min
+} // Create a question -> create a question action 0.00 min
