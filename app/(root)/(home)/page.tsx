@@ -109,7 +109,7 @@ const Home = () => {
           )) : 
           <NoResult
             title={`There's no question to show`}
-            description={`Be the first to break the silence! 🚀 Ask a Question and kickstart the discussion. our query could be the next big thing others learn from. Get involved! 💡`}
+            content={`Be the first to break the silence! 🚀 Ask a Question and kickstart the discussion. our query could be the next big thing others learn from. Get involved! 💡`}
             link="/"
             linkLabel="Ask a question"
           />

@@ -8,11 +8,11 @@ export async function createQuestion(params: any) {
   try {
     connectToDatabase();
 
-    const { title, description, tags, author, path } = params;
+    const { title, content, tags, author, path } = params;
 
     const question = await Question.create({
       title,
-      description,
+      content,
       author,
     });
 
@@ -29,7 +29,7 @@ export async function createQuestion(params: any) {
     }
 
     await Question.findByIdAndUpdate(question._id, {
-      $push: { $each: tagDocuments },
+      $push: { tag :{ $each: tagDocuments }},
     });
   } catch (error) {}
 }
