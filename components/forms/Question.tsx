@@ -32,9 +32,9 @@ interface QuestionProps {
 }
 
 const Question = ({ mongoUserId } : QuestionProps ) => {
-  const editorRef = useRef(null);
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const type : any = "create";
+  const editorRef = useRef<null>(null);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+  const type : string = "create";
   const router = useRouter();
   const pathname = usePathname();
 
@@ -60,7 +60,8 @@ const Question = ({ mongoUserId } : QuestionProps ) => {
         content: values.explanation,
         tags: values.tags,
         author: JSON.parse(mongoUserId),
-      })
+        path: ""
+      });
 
       router.push('/');
     } catch (error) {

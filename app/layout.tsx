@@ -39,4 +39,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-} // Create a question -> create a question action 6.00 min
+}
