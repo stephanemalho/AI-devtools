@@ -5,13 +5,17 @@ import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
 import Question from "@/database/question.model";
 import Tag from "@/database/tag.model";
 import User from "@/database/user.model";
+import { revalidatePath } from "next/cache";
 
 
 export async function getQuestions(params: GetQuestionsParams) {
   try {
     connectToDatabase();
 
-    const questions = await Question.find({}).populate({ path : 'tags', model : Tag }).populate("tags").populate({ path : 'author' , model : User })
+    const questions = ( await Question.find({})
+    .populate({ path : 'tags', model : Tag })
+    .populate({ path : 'author' , model : User }).sort({ createdAt: -1 })
+    )
 
     return { questions };
   } catch (error) {
@@ -45,7 +49,9 @@ export async function createQuestion(params: CreateQuestionParams) {
     }
 
     await Question.findByIdAndUpdate(question._id, {
-      $push: { tag :{ $each: tagDocuments }},
+      $push: { tags :{ $each: tagDocuments }},
     });
+
+    return revalidatePath(path);
   } catch (error) {}
 }

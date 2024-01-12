@@ -9,63 +9,6 @@ import { getQuestions } from "@/lib/actions/question.action";
 import Link from "next/link";
 import React from "react";
 
-const questions = [
-  {
-    _id: "1",
-    title: "What is the best way to learn React?",
-    tags: [
-      {
-        _id: "tag1",
-        name: "react",
-      },
-      {
-        _id: "tag2",
-        name: "javascript",
-      },
-      {
-        _id: "tag3",
-        name: "frontend",
-      },
-    ],
-    author: {
-      _id: "author1",
-      name: "Kohn Doe",
-      picture: "url_de_l'image",
-    },
-    upvotes: 134536,
-    views: 2034567,
-    answers: [],
-    createdAt: new Date("2021-09-10T11:00:00.000Z"),
-  },
-  {
-    _id: "2",
-    title: "Can I use Next.js with Typescript?",
-    tags: [
-      {
-        _id: "tag4",
-        name: "Nextjs",
-      },
-      {
-        _id: "tag5",
-        name: "typescript",
-      },
-      {
-        _id: "tag6",
-        name: "frontend",
-      },
-    ],
-    author: {
-      _id: "author2",
-      name: "John Doe",
-      picture: "url_de_l'image",
-    },
-    upvotes: 10,
-    views: 100,
-    answers: [],
-    createdAt: new Date("2019-09-10T11:00:00.000Z"),
-  },
-];
-
 const Home = async () => {
 
   const result = await getQuestions({});
@@ -100,7 +43,7 @@ const Home = async () => {
       </div>
       <HomeFilters />
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? questions.map((question) => (
+        {result.questions.length > 0 ? result.questions.map((question) => (
           <QuestionCard
             key={question._id}
             _id={question._id}
