@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}) => {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${SpaceGrotesk.variable}`}>
@@ -39,4 +39,7 @@ export default function RootLayout({
       </body>
     </html>
   );
-} // The Webhooks Deploy Webhooks 0.00 min
+} 
+
+export default RootLayout;
+// The Webhooks Deploy Webhooks 0.00 min
